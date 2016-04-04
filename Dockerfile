@@ -23,4 +23,4 @@ USER logger
 
 # Entry point
 WORKDIR /code
-CMD ["bash", "run.sh"]
+CMD ["sh", "run.sh"]
