@@ -36,14 +36,20 @@ def main():
     # Build datapoints
     datapoints = []
     for sensor in data['sensors']['people_now_present']:
+        value = sensor['value']
+        del sensor['value']
         datapoints.append({
             'measurement': 'people_present',
-            'fields': sensor,
+            'tags': sensor,
+            'fields': {'value': value},
         })
     for sensor in data['sensors']['temperature']:
+        value = sensor['value']
+        del sensor['value']
         datapoints.append({
             'measurement': 'temperature',
-            'fields': sensor,
+            'tags': sensor,
+            'fields': {'value': value},
         })
 
     # Write datapoints
